@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight } from "react-native";
 import styles from "./styles";
-import { categories } from "../../data/dataArrays";
+import { categories, ingredients } from "../../data/dataArrays";
 import { getNumberOfRecipes } from "../../data/MockDataAPI";
 import MenuImage from "../../components/MenuImage/MenuImage";
 
@@ -29,8 +29,8 @@ export default function CategoriesScreen(props) {
 
   const onPressCategory = (item) => {
     const title = item.name;
-    const category = item;
-    navigation.navigate("RecipesList", { category, title });
+    const ingredient = item;
+    navigation.navigate("IngredientsDetails", { ingredients, title });
   };
 
   const renderCategory = ({ item }) => (
@@ -38,14 +38,14 @@ export default function CategoriesScreen(props) {
       <View style={styles.categoriesItemContainer}>
         <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} />
         <Text style={styles.categoriesName}>{item.name}</Text>
-        <Text style={styles.categoriesInfo}>{getNumberOfRecipes(item.id)} recipes</Text>
+        {/* <Text style={styles.categoriesInfo}>{getNumberOfRecipes(item.id)} recipes</Text> */}
       </View>
     </TouchableHighlight>
   );
 
   return (
     <View>
-      <FlatList data={categories} renderItem={renderCategory} keyExtractor={(item) => `${item.id}`} />
+      <FlatList data={ingredients} renderItem={renderCategory} keyExtractor={(item) => `${item.ingredientId}`} />
     </View>
   );
 }

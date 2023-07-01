@@ -29,6 +29,7 @@ export default function HomeScreen(props) {
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressRecipe(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
+        <Text style={styles.date}>{item.name}</Text>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.category}>{getCategoryName(item.categoryId)}</Text>
       </View>
@@ -37,7 +38,12 @@ export default function HomeScreen(props) {
 
   return (
     <View>
-      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={recipes} renderItem={renderRecipes} keyExtractor={(item) => `${item.recipeId}`} />
+      <FlatList 
+          vertical 
+          showsVerticalScrollIndicator={false} 
+          numColumns={2} 
+          data={recipes} renderItem={renderRecipes} 
+          keyExtractor={(item) => `${item.recipeId}`} />
     </View>
   );
 }

@@ -70,7 +70,11 @@ export default function SearchScreen(props) {
 
   return (
     <View>
-      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={data} renderItem={renderRecipes} keyExtractor={(item) => `${item.recipeId}`} />
+      <FlatList vertical showsVerticalScrollIndicator={false} 
+      numColumns={2} 
+      data={data} 
+      renderItem={renderRecipes} 
+      keyExtractor={(item) => `${item.recipeId}`} />
     </View>
   );
 }

@@ -38,7 +38,7 @@ function MainNavigator() {
 
 
 
- const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
 function DrawerStack() {
   return(

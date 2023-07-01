@@ -100,7 +100,7 @@ export default function RecipeScreen(props) {
             }
           >
             <Text style={styles.category}>
-              {getCategoryName(item.categoryId).toUpperCase()}
+              {getCategoryName(item.categoryId).toUpperCase()} 
             </Text>
           </TouchableHighlight>
         </View>
@@ -110,14 +110,14 @@ export default function RecipeScreen(props) {
             style={styles.infoPhoto}
             source={require("../../../assets/icons/time.png")}
           />
-          <Text style={styles.infoRecipe}>{item.time} minutes </Text>
+          <Text style={styles.infoRecipe}>Qualified for {item.time}  </Text>
         </View>
 
         <View style={styles.infoContainer}>
           <ViewIngredientsButton
             onPress={() => {
               let ingredients = item.ingredients;
-              let title = "Ingredients for " + item.title;
+              let title = "Personal Records of " + item.title ;
               navigation.navigate("IngredientsDetails", { ingredients, title });
             }}
           />

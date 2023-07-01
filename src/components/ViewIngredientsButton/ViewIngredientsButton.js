@@ -7,7 +7,7 @@ export default function ViewIngredientsButton (props) {
     return (
       <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={props.onPress}>
         <View style={styles.container}>
-          <Text style={styles.text}>View Ingredients</Text>
+          <Text style={styles.text}>View Times</Text>
         </View>
       </TouchableHighlight>
     );
