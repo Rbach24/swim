@@ -16,6 +16,8 @@ import {
 } from "../../data/MockDataAPI";
 import BackButton from "../../components/BackButton/BackButton";
 import ViewIngredientsButton from "../../components/ViewIngredientsButton/ViewIngredientsButton";
+import CheckinButton from "../../components/CheckinButton/CheckinButton";
+import AttendanceForPracticeButton from "../../components/AttendanceForPracticeButton/AttendanceForPracticeButton";
 
 const { width: viewportWidth } = Dimensions.get("window");
 
@@ -52,7 +54,7 @@ export default function RecipeScreen(props) {
     </TouchableHighlight>
   );
 
-  const onPressIngredient = (item) => {
+  const onPressSessions = (item) => {
     var name = getIngredientName(item);
     let ingredient = item;
     navigation.navigate("Ingredient", { ingredient, name });
@@ -116,12 +118,33 @@ export default function RecipeScreen(props) {
         <View style={styles.infoContainer}>
           <ViewIngredientsButton
             onPress={() => {
-              let ingredients = item.ingredients;
+              // item here is the recipe/swimmer item.
+              let sessions = item.sessions;
               let title = "Personal Records of " + item.title ;
-              navigation.navigate("IngredientsDetails", { ingredients, title });
+              navigation.navigate("IngredientsDetails", { sessions: sessions, title });
             }}
           />
         </View>
+        <View style={styles.infoContainer}>
+          <AttendanceForPracticeButton
+            onPress={() => {
+              // item here is the recipe/swimmer item.
+              let sessions = item.sessions;
+              let title = "Personal Records of " + item.title ;
+              navigation.navigate("IngredientsDetails", { sessions: sessions, title });
+            }}
+          />
+        </View>
+        
+        <View style={styles.infoContainer}>
+          <CheckinButton
+            onPress={() => {
+              navigation.navigate("Checkin");
+            }}
+          />
+        </View>
+        
+
         <View style={styles.infoContainer}>
           <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
         </View>

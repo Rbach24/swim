@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
 import React, { Component } from 'react';
-import { recipes, categories, ingredients } from './dataArrays';
+import { recipes, categories, sessions } from './dataArrays';
 
 export function getCategoryById(categoryId) {
   let category;
@@ -14,7 +14,7 @@ export function getCategoryById(categoryId) {
 
 export function getIngredientName(ingredientID) {
   let name;
-  ingredients.map(data => {
+  sessions.map(data => {
     if (data.ingredientId == ingredientID) {
       name = data.name;
     }
@@ -24,7 +24,7 @@ export function getIngredientName(ingredientID) {
 
 export function getIngredientUrl(ingredientID) {
   let url;
-  ingredients.map(data => {
+  sessions.map(data => {
     if (data.ingredientId == ingredientID) {
       url = data.photo_url;
     }
@@ -42,6 +42,7 @@ export function getCategoryName(categoryId) {
   return name;
 }
 
+
 export function getRecipes(categoryId) {
   const recipesArray = [];
   recipes.map(data => {
@@ -56,7 +57,7 @@ export function getRecipes(categoryId) {
 export function getRecipesByIngredient(ingredientId) {
   const recipesArray = [];
   recipes.map(data => {
-    data.ingredients.map(index => {
+    data.sessions.map(index => {
       if (index[0] == ingredientId) {
         recipesArray.push(data);
       }
@@ -75,13 +76,15 @@ export function getNumberOfRecipes(categoryId) {
   return count;
 }
 
-export function getAllIngredients(idArray) {
+export function getAllSessions(idArray) {
   const ingredientsArray = [];
+  // return ingredientsArray;
+
   idArray.map(index => {
-    ingredients.map(data => {
-      if (data.ingredientId == index[0]) {
-        ingredientsArray.push([data, index[1]]);
-      }
+    sessions.map(data => {
+      // if (data.ingredientId == index[0]) {
+      //   ingredientsArray.push([data, index[1]]);
+      // }
     });
   });
   return ingredientsArray;
@@ -91,7 +94,7 @@ export function getAllIngredients(idArray) {
 export function getRecipesByIngredientName(ingredientName) {
   const nameUpper = ingredientName.toUpperCase();
   const recipesArray = [];
-  ingredients.map(data => {
+  sessions.map(data => {
     if (data.name.toUpperCase().includes(nameUpper)) {
       // data.name.yoUpperCase() == nameUpper
       const recipes = getRecipesByIngredient(data.ingredientId);
