@@ -4,6 +4,7 @@ import MultiSelect from "../../components/MultiSelect/MultiSelect";
 import TextInputExample from "../../components/TextInput/TextInput";
 import EnterTime from "../../components/EnterTime/EnterTime";
 import SaveButton from "../../components/SaveButton/SaveButton";
+
 export default function CheckinScreen(props) {
   const { navigation, route } = props;
 
@@ -18,6 +19,19 @@ export default function CheckinScreen(props) {
       },
     });
   }, []);
+
+  function onSaveButton() {
+
+    
+
+    Alert.alert(
+        'Changes Saved'
+     );
+
+
+    navigation.goBack();
+  }
+
 
   return (
    <View style ={{paddingTop : 180}}>
@@ -69,7 +83,11 @@ export default function CheckinScreen(props) {
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',}}>
-      <SaveButton onPress={() => {navigation.navigate('Home');}}/> 
+      <SaveButton
+        text = "Save me!"
+        onPress = {() => onSaveButton() }
+      // onPress={() => {navigation.goBack();}}
+      /> 
     </View>
   </View>
 

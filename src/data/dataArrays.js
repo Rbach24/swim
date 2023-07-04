@@ -324,12 +324,13 @@ export const recipes = [
     ],
     time: 'States',
     sessions: [
-      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2022", time_recorded : 49, type : 'Meet', qualified : true},
+      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2022", time_recorded : 49, type : 'Practice', qualified : true},
       {id: 2, swim_style : "50M Freestyle", date : "2/2/2022", time_recorded : 225, type : 'Meet', qualified : true},
-      {id: 3, swim_style : "100M Freestyle", date : "2/2/2022", time_recorded : 812, type : 'Meet', qualified : true}
+      {id: 3, swim_style : "100M Freestyle", date : "2/2/2022", time_recorded : 812, type : 'Meet', qualified : true},
+      {id: 4, date : "2/2/2022",  type : 'Practice'}
     ],
     description:
-    '...'
+    'description, description, description...'
   },
 
 ];

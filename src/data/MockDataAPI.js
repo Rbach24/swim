@@ -1,4 +1,4 @@
-import { Text } from 'react-native';
+import { Text, Alert } from 'react-native';
 import React, { Component } from 'react';
 import { recipes, categories, sessions } from './dataArrays';
 
@@ -131,4 +131,32 @@ export function getRecipesByRecipeName(recipeName) {
     }
   });
   return recipesArray;
+}
+
+// ====== Real Swim app APIs ======
+// vvvvvvvvvvvv
+
+export function getSwimmers() {
+  const swimmersArray = [];
+  recipes.map(data => {
+      swimmersArray.push(data);
+  });
+  return swimmersArray;
+}
+
+export function getSessionsbySwimmerId(swimmerId, type = "Meet") {
+  let sessionsArray = [];
+  recipes.map(data => {
+    if (data.swimmerId == swimmerId) {
+      data.sessions.map(
+        sessionItem => {
+          if (sessionItem.type == type) {
+            sessionsArray.push(sessionItem);
+          }
+        }
+      )
+    }
+  });
+
+  return sessionsArray;
 }

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Alert, Text, TouchableOpacity, } from 'react-native';
+import PropTypes from "prop-types";
+import styles from "./styles";
 
-const SaveButton = () => {
-  const showAlert = () =>{
-     Alert.alert(
-        'Changes Saved'
-     )
-  }
+export default function SaveButton (props){
+
   return (
-     <TouchableOpacity onPress = {showAlert}>
-        <Text>Save</Text>
+     <TouchableOpacity onPress={props.onPress} >
+        <Text> {props.text} </Text>
      </TouchableOpacity>
   )
 }
-export default SaveButton
 
-
+SaveButton.propTypes = {
+  onPress: PropTypes.func,
+  text: PropTypes.string,
+};

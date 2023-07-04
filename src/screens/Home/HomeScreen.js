@@ -12,9 +12,7 @@ export default function HomeScreen(props) {
     navigation.setOptions({
       headerLeft: () => (
         <MenuImage
-          onPress={() => {
-            navigation.openDrawer();
-          }}
+          onPress={() => { navigation.openDrawer(); }}
         />
       ),
       headerRight: () => <View />,

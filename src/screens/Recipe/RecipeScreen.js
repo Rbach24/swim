@@ -13,11 +13,13 @@ import {
   getIngredientName,
   getCategoryName,
   getCategoryById,
+  getSessionsbySwimmerId as getSessionsbySwimmerId
 } from "../../data/MockDataAPI";
 import BackButton from "../../components/BackButton/BackButton";
 import ViewIngredientsButton from "../../components/ViewIngredientsButton/ViewIngredientsButton";
 import CheckinButton from "../../components/CheckinButton/CheckinButton";
 import AttendanceForPracticeButton from "../../components/AttendanceForPracticeButton/AttendanceForPracticeButton";
+import { FlatList } from "react-native-gesture-handler";
 
 const { width: viewportWidth } = Dimensions.get("window");
 
@@ -27,6 +29,8 @@ export default function RecipeScreen(props) {
   const item = route.params?.item;
   const category = getCategoryById(item.categoryId);
   const title = getCategoryName(category.id);
+  const meetSessions = getSessionsbySwimmerId(item.swimmerId);
+  const practiceSessions = getSessionsbySwimmerId(item.swimmerId, "Practice");
 
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -34,7 +38,7 @@ export default function RecipeScreen(props) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTransparent: "true",
+      headerTransparent: "false",
       headerLeft: () => (
         <BackButton
           onPress={() => {
@@ -59,6 +63,28 @@ export default function RecipeScreen(props) {
     let ingredient = item;
     navigation.navigate("Ingredient", { ingredient, name });
   };
+
+  const renderMeetSession = ({ item }) => (
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)">
+      <View style={styles.categoriesItemContainer}>
+        {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
+        <Text style={styles.categoriesName}>{item.date}</Text>
+        <Text style={styles.categoriesName}>{item.type}</Text>
+        <Text style={styles.categoriesName}>{item.swim_style}</Text>
+        <Text style={styles.categoriesName}>{item.time_recorded}</Text>
+        {/* <Text style={styles.categoriesInfo}>{getNumberOfRecipes(item.id)} recipes</Text> */}
+      </View>
+    </TouchableHighlight>);
+
+  const renderPracticeSession = ({ item }) => (
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)">
+      <View style={styles.categoriesItemContainer}>
+        {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
+        <Text style={styles.categoriesName}>{item.date}</Text>
+        <Text style={styles.categoriesName}>{item.type}</Text>
+      </View>
+    </TouchableHighlight>);
+
 
   return (
     <ScrollView style={styles.container}>
@@ -149,6 +175,31 @@ export default function RecipeScreen(props) {
           <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
         </View>
       </View>
+
+      <View>
+        {/* <Text style={styles.infoDescriptionRecipe}>No. of sessions: {JSON.stringify(meetSessions)}</Text> */}
+        <FlatList 
+          vertical 
+          showsVerticalScrollIndicator={false} 
+          data={meetSessions} renderItem={renderMeetSession} 
+          keyExtractor={(item) => `${item.id}`} />
+      </View>
+
+      <View><Text> ------------------------- </Text></View>
+
+      <View>
+        {/* <Text style={styles.infoDescriptionRecipe}>No. of sessions: {JSON.stringify(meetSessions)}</Text> */}
+        <FlatList 
+          vertical 
+          showsVerticalScrollIndicator={false} 
+          data={practiceSessions} renderItem={renderPracticeSession} 
+          keyExtractor={(item) => `${item.id}`} />
+      </View>
+
+      {/* <View>
+        <FlatList data="allSession" renderItem={renderPracticeSessions} />
+      </View> */}
+
     </ScrollView>
   );
 }
