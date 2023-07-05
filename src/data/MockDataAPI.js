@@ -144,6 +144,22 @@ export function getSwimmers() {
   return swimmersArray;
 }
 
+export function getSwimmerById(swimmerId) {
+  var swimmer = null;
+  
+  recipes.map(item => {
+    if (item.swimmerId == swimmerId) {
+        swimmer = item;
+    }
+  });
+
+  if (swimmer == null) {
+    console.log ("getSwimmerById could not found swimmers for id:" + swimmerId);
+  }
+
+  return swimmer;
+}
+
 export function getSessionsbySwimmerId(swimmerId, type = "Meet") {
   let sessionsArray = [];
   recipes.map(data => {
@@ -159,4 +175,14 @@ export function getSessionsbySwimmerId(swimmerId, type = "Meet") {
   });
 
   return sessionsArray;
+}
+
+export function addSessionToSwimmer(swimmerId, newSession) {
+
+  recipes.map(data => {
+    if (data.swimmerId == swimmerId) {
+      data.sessions.push(newSession);
+    }
+  });
+
 }

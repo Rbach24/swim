@@ -1,6 +1,6 @@
 import SelectDropdown from 'react-native-select-dropdown'
 import React from 'react';
-import { StyleSheet} from 'react-native';
+import { StyleSheet, Alert} from 'react-native';
 
 export default function MultiSelect(props) { 
 	return (
@@ -8,7 +8,8 @@ export default function MultiSelect(props) {
 		buttonStyle = {{borderWidth : 1, borderRadius : 100}}
 		data={["200 Medley Relay", "200 Free", "200IM", "50 Free", "100 Fly", "100 Free", "500 Free", "200 Free Relay", "100 Back", "100 Breast", "400 Free Relay", "Diving"]}
 		onSelect={(selectedItem, index) => {
-			console.log(selectedItem, index)
+			console.log(selectedItem, index);
+			Alert.alert(selectedItem);
 		}}
 		buttonTextAfterSelection={(selectedItem, index) => {
 			// text represented after item is selected

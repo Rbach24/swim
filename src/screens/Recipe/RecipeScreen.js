@@ -165,7 +165,7 @@ export default function RecipeScreen(props) {
         <View style={styles.infoContainer}>
           <CheckinButton
             onPress={() => {
-              navigation.navigate("Checkin");
+              navigation.navigate("Checkin", {swimmerId: item.swimmerId });
             }}
           />
         </View>
