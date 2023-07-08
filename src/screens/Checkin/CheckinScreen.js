@@ -75,6 +75,7 @@ export default function CheckinScreen(props) {
 
       <SelectDropdown
         buttonStyle = {{borderWidth : 1, borderRadius : 100}}
+        /* TODO: Remove below definition and use swim_style in dataArray.js */
         data={["200 Medley Relay", "200 Free", "200IM", "50 Free", "100 Fly", "100 Free", "500 Free", "200 Free Relay", "100 Back", "100 Breast", "400 Free Relay", "Diving"]}
         onSelect={(selectedItem, index) => {
           console.log(selectedItem, index);

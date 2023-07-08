@@ -187,10 +187,16 @@ export function addSessionToSwimmer(swimmerId, newSession) {
 
 }
 
-export function initializeSwimmersFromDatabase() {
+export function initializeSwimmersFromDatabase (appState) {
+  console.log ("AppState: " + appState + ", initializeSwimmersFromDatabase started...");
 
+  console.log ("initializeSwimmersFromDatabase ended.");
 }
 
-export function saveSwimmersToDatabase () {
+export function saveSwimmersToDatabase (appState) {
+  console.log ("AppState: " + appState + " saveSwimmersToDatabase started...");
+  let data = swimmers;
+  let dataAsString = JSON.stringify(data);
+  console.log (" saveSwimmersToDatabase ended.");
 
 }
