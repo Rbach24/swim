@@ -1,6 +1,6 @@
 import { Text, Alert } from 'react-native';
 import React, { Component } from 'react';
-import { recipes, categories, sessions } from './dataArrays';
+import { swimmers, categories, sessions } from './dataArrays';
 
 export function getCategoryById(categoryId) {
   let category;
@@ -12,20 +12,20 @@ export function getCategoryById(categoryId) {
   return category;
 }
 
-export function getIngredientName(ingredientID) {
+export function getStyleName(styleId) {
   let name;
   sessions.map(data => {
-    if (data.ingredientId == ingredientID) {
+    if (data.styleId == styleId) {
       name = data.name;
     }
   });
   return name;
 }
 
-export function getIngredientUrl(ingredientID) {
+export function getStyleUrl(styleId) {
   let url;
   sessions.map(data => {
-    if (data.ingredientId == ingredientID) {
+    if (data.styleId == styleId) {
       url = data.photo_url;
     }
   });
@@ -43,32 +43,32 @@ export function getCategoryName(categoryId) {
 }
 
 
-export function getRecipes(categoryId) {
-  const recipesArray = [];
-  recipes.map(data => {
+export function getSwimmersByCategoryId(categoryId) {
+  const swimmersArray = [];
+  swimmers.map(data => {
     if (data.categoryId == categoryId) {
-      recipesArray.push(data);
+      swimmersArray.push(data);
     }
   });
-  return recipesArray;
+  return swimmersArray;
 }
-
+ 
 // modifica
-export function getRecipesByIngredient(ingredientId) {
-  const recipesArray = [];
-  recipes.map(data => {
+export function getSwimmersByStyle(styleId) {
+  const swimmersArray = [];
+  swimmers.map(data => {
     data.sessions.map(index => {
-      if (index[0] == ingredientId) {
-        recipesArray.push(data);
+      if (index[0] == styleId) {
+        swimmersArray.push(data);
       }
     });
   });
-  return recipesArray;
+  return swimmersArray;
 }
 
-export function getNumberOfRecipes(categoryId) {
+export function getNumberOfSwimmers(categoryId) {
   let count = 0;
-  recipes.map(data => {
+  swimmers.map(data => {
     if (data.categoryId == categoryId) {
       count++;
     }
@@ -77,7 +77,7 @@ export function getNumberOfRecipes(categoryId) {
 }
 
 export function getAllSessions(idArray) {
-  const ingredientsArray = [];
+  const sessionsArray = [];
   // return ingredientsArray;
 
   idArray.map(index => {
@@ -87,50 +87,50 @@ export function getAllSessions(idArray) {
       // }
     });
   });
-  return ingredientsArray;
+  return sessionsArray;
 }
 
 // functions for search
-export function getRecipesByIngredientName(ingredientName) {
-  const nameUpper = ingredientName.toUpperCase();
-  const recipesArray = [];
-  sessions.map(data => {
-    if (data.name.toUpperCase().includes(nameUpper)) {
-      // data.name.yoUpperCase() == nameUpper
-      const recipes = getRecipesByIngredient(data.ingredientId);
-      const unique = [...new Set(recipes)];
-      unique.map(item => {
-        recipesArray.push(item);
-      });
-    }
-  });
-  const uniqueArray = [...new Set(recipesArray)];
-  return uniqueArray;
-}
+// export function getSwimmersBySession(ingredientName) {
+//   const nameUpper = ingredientName.toUpperCase();
+//   const recipesArray = [];
+//   sessions.map(data => {
+//     if (data.name.toUpperCase().includes(nameUpper)) {
+//       // data.name.yoUpperCase() == nameUpper
+//       const recipes = getRecipesByIngredient(data.ingredientId);
+//       const unique = [...new Set(recipes)];
+//       unique.map(item => {
+//         recipesArray.push(item);
+//       });
+//     }
+//   });
+//   const uniqueArray = [...new Set(recipesArray)];
+//   return uniqueArray;
+// }
 
-export function getRecipesByCategoryName(categoryName) {
+export function getSwimmersByCategoryName(categoryName) {
   const nameUpper = categoryName.toUpperCase();
-  const recipesArray = [];
+  const swimmersArray = [];
   categories.map(data => {
     if (data.name.toUpperCase().includes(nameUpper)) {
-      const recipes = getRecipes(data.id); // return a vector of recipes
-      recipes.map(item => {
-        recipesArray.push(item);
+      const swimmers = getSwimmersByCategoryId(data.id); // return a vector of recipes
+      swimmers.map(item => {
+        swimmersArray.push(item);
       });
     }
   });
-  return recipesArray;
+  return swimmersArray;
 }
 
-export function getRecipesByRecipeName(recipeName) {
-  const nameUpper = recipeName.toUpperCase();
-  const recipesArray = [];
-  recipes.map(data => {
+export function getSwimmersBySwimmerName(swimmerName) {
+  const nameUpper = swimmerName.toUpperCase();
+  const swimmersArray = [];
+  swimmers.map(data => {
     if (data.title.toUpperCase().includes(nameUpper)) {
-      recipesArray.push(data);
+      swimmersArray.push(data);
     }
   });
-  return recipesArray;
+  return swimmersArray;
 }
 
 // ====== Real Swim app APIs ======
@@ -138,7 +138,7 @@ export function getRecipesByRecipeName(recipeName) {
 
 export function getSwimmers() {
   const swimmersArray = [];
-  recipes.map(data => {
+  swimmers.map(data => {
       swimmersArray.push(data);
   });
   return swimmersArray;
@@ -146,8 +146,8 @@ export function getSwimmers() {
 
 export function getSwimmerById(swimmerId) {
   var swimmer = null;
-  
-  recipes.map(item => {
+
+  swimmers.map(item => {
     if (item.swimmerId == swimmerId) {
         swimmer = item;
     }
@@ -162,7 +162,7 @@ export function getSwimmerById(swimmerId) {
 
 export function getSessionsbySwimmerId(swimmerId, type = "Meet") {
   let sessionsArray = [];
-  recipes.map(data => {
+  swimmers.map(data => {
     if (data.swimmerId == swimmerId) {
       data.sessions.map(
         sessionItem => {
@@ -179,10 +179,18 @@ export function getSessionsbySwimmerId(swimmerId, type = "Meet") {
 
 export function addSessionToSwimmer(swimmerId, newSession) {
 
-  recipes.map(data => {
+  swimmers.map(data => {
     if (data.swimmerId == swimmerId) {
       data.sessions.push(newSession);
     }
   });
+
+}
+
+export function initializeSwimmersFromDatabase() {
+
+}
+
+export function saveSwimmersToDatabase () {
 
 }

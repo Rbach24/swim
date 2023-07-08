@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight, Pressable } from "react-native";
 import styles from "./styles";
 import MenuImage from "../../components/MenuImage/MenuImage";
-import { getCategoryName, getRecipesByRecipeName, getRecipesByCategoryName, getRecipesByIngredientName } from "../../data/MockDataAPI";
+import { getCategoryName, getSwimmersBySwimmerName, getSwimmersByCategoryName } from "../../data/MockDataAPI";
 import { TextInput } from "react-native-gesture-handler";
 
 export default function SearchScreen(props) {
@@ -41,25 +41,25 @@ export default function SearchScreen(props) {
 
   const handleSearch = (text) => {
     setValue(text);
-    var recipeArray1 = getRecipesByRecipeName(text);
-    var recipeArray2 = getRecipesByCategoryName(text);
-    var recipeArray3 = getRecipesByIngredientName(text);
-    var aux = recipeArray1.concat(recipeArray2);
-    var recipeArray = [...new Set(aux)];
+    var swimmerArray1 = getSwimmersBySwimmerName(text);
+    var swimmerArray2 = getSwimmersByCategoryName(text);
+    // var swimmerArray3 = getSwimmersBySession(text);
+    var aux = swimmerArray1.concat(swimmerArray2);
+    var swimmerArray = [...new Set(aux)];
 
     if (text == "") {
       setData([]);
     } else {
-      setData(recipeArray);
+      setData(swimmerArray);
     }
   };
 
-  const onPressRecipe = (item) => {
-    navigation.navigate("Recipe", { item });
+  const onPressSwimmer = (item) => {
+    navigation.navigate("Swimmer", { item });
   };
 
-  const renderRecipes = ({ item }) => (
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressRecipe(item)}>
+  const renderSwimmers = ({ item }) => (
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressSwimmer(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
         <Text style={styles.title}>{item.title}</Text>
@@ -73,7 +73,7 @@ export default function SearchScreen(props) {
       <FlatList vertical showsVerticalScrollIndicator={false} 
       numColumns={2} 
       data={data} 
-      renderItem={renderRecipes} 
+      renderItem={renderSwimmers} 
       keyExtractor={(item) => `${item.recipeId}`} />
     </View>
   );

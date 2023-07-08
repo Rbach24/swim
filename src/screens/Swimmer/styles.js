@@ -1,7 +1,14 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width: viewportWidth } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
+// orientation must fixed
+const SCREEN_WIDTH = width < height ? width : height;
 
+const swimmerNumColums = 2;
+// item size
+const SWIMMER_ITEM_HEIGHT = 225;
+const SWIMMER_ITEM_MARGIN = 20;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -16,6 +23,18 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     width: '100%',
     height: 250
+  },
+  session : {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: SWIMMER_ITEM_MARGIN,
+    marginTop: 20,
+    width: (SCREEN_WIDTH - (swimmerNumColums + 1) * SWIMMER_ITEM_MARGIN) / swimmerNumColums,
+    height: SWIMMER_ITEM_HEIGHT + 75,
+    borderColor: '#cccccc',
+    borderWidth: 0.5,
+    borderRadius: 15
   },
   imageContainer: {
     flex: 1,
@@ -36,7 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginHorizontal: 0
   },
-  infoRecipeContainer: {
+  infoSwimmerContainer: {
     flex: 1,
     margin: 25,
     marginTop: 20,
@@ -60,7 +79,7 @@ const styles = StyleSheet.create({
     width: 20,
     marginRight: 0
   },
-  infoRecipe: {
+  infoSwimmer: {
     fontSize: 14,
     fontWeight: 'bold',
     marginLeft: 5,
@@ -71,13 +90,13 @@ const styles = StyleSheet.create({
     margin: 10,
     color: '#2cd18a'
   },
-  infoDescriptionRecipe: {
+  infoDescriptionSwimmer: {
     textAlign: 'left',
     fontSize: 16,
     marginTop: 30,
     margin: 15
   },
-  infoRecipeName: {
+  infoSwimmerName: {
     fontSize: 28,
     margin: 10,
     fontWeight: 'bold',

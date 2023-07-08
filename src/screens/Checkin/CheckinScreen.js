@@ -1,8 +1,6 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
+import DatePicker from 'react-native-date-picker';
 import { FlatList, TextInput, Text, View, Image, TouchableHighlight, StyleSheet, Alert } from "react-native";
-import MultiSelect from "../../components/MultiSelect/MultiSelect";
-import TextInputExample from "../../components/TextInput/TextInput";
-import EnterTime from "../../components/EnterTime/EnterTime";
 import SaveButton from "../../components/SaveButton/SaveButton";
 import SelectDropdown from 'react-native-select-dropdown'
 import { addSessionToSwimmer, getSwimmerById } from "../../data/MockDataAPI";
@@ -10,6 +8,7 @@ import { addSessionToSwimmer, getSwimmerById } from "../../data/MockDataAPI";
 // import { nativeViewGestureHandlerProps } from "react-native-gesture-handler/lib/typescript/handlers/NativeViewGestureHandler";
 
 export default function CheckinScreen(props) {
+  const [date, setDate] = useState(new Date())
   const { navigation, route } = props;
 
   const sessions = route.params?.sessions;
@@ -56,7 +55,7 @@ export default function CheckinScreen(props) {
     var swimmer = getSwimmerById(swimmerId);
     // Alert.alert( JSON.stringify(route.params) + "  ----- " + JSON.stringify(swimmer));
     
-    navigation.navigate("Recipe", { item: swimmer });
+    navigation.navigate("Swimmer", { item: swimmer });
   }
 
 
@@ -99,6 +98,7 @@ export default function CheckinScreen(props) {
       {/* <TextInputExample /> */}
 
       { /* TODO: Chaitu - change this to calendar/date control  */}
+      {/*<DatePicker date={date} onDateChange={setDate} />*/}
       <TextInput
         style={styles.input}
         onChangeText={onDateChanged}

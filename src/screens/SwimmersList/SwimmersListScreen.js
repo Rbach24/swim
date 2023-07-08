@@ -1,13 +1,13 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, TouchableHighlight, Image } from "react-native";
 import styles from "./styles";
-import { getRecipes, getCategoryName } from "../../data/MockDataAPI";
+import { getSwimmersByCategoryId, getCategoryName } from "../../data/MockDataAPI";
 
-export default function RecipesListScreen(props) {
+export default function SwimmersListScreen(props) {
   const { navigation, route } = props;
 
   const item = route?.params?.category;
-  const recipesArray = getRecipes(item.id);
+  const swimmersArray = getSwimmersByCategoryId(item.id);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -16,12 +16,12 @@ export default function RecipesListScreen(props) {
     });
   }, []);
 
-  const onPressRecipe = (item) => {
-    navigation.navigate("Recipe", { item });
+  const onPressSwimmer = (item) => {
+    navigation.navigate("Swimmer", { item });
   };
 
-  const renderRecipes = ({ item }) => (
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressRecipe(item)}>
+  const renderSwimmers = ({ item }) => (
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressSwimmer(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
         <Text style={styles.title}>{item.title}</Text>
@@ -32,7 +32,7 @@ export default function RecipesListScreen(props) {
 
   return (
     <View>
-      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={recipesArray} renderItem={renderRecipes} keyExtractor={(item) => `${item.recipeId}`} />
+      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={swimmersArray} renderItem={renderSwimmers} keyExtractor={(item) => `${item.recipeId}`} />
     </View>
   );
 }

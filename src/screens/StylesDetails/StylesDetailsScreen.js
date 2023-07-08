@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight } from "react-native";
 import styles from "./styles";
-import { getIngredientName, getAllSessions } from "../../data/MockDataAPI";
-export default function IngredientsDetailsScreen(props) {
+import { getStyleName, getAllSessions } from "../../data/MockDataAPI";
+export default function StylesDetailsScreen(props) {
   const { navigation, route } = props;
 
   const sessions = route.params?.sessions;
@@ -31,7 +31,7 @@ export default function IngredientsDetailsScreen(props) {
   //   let ingredient = item.ingredientId;
   //   navigation.navigate("Ingredient", { ingredient, name });
   // };
-  const renderIngredient = ({ item }) => (
+  const renderStyle = ({ item }) => (
     // item = session item
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" 
     // TODO: Add add this functionality later on -- onPress={() => onPressIngredient(item)}
@@ -46,7 +46,7 @@ export default function IngredientsDetailsScreen(props) {
 
   return (
     <View>
-      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={3} data={sessionsArray} renderItem={renderIngredient} keyExtractor={(item) => `${item.recipeId}`} />
+      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={3} data={sessionsArray} renderItem={renderStyle} keyExtractor={(item) => `${item.swimmerId}`} />
     </View>
    
   );

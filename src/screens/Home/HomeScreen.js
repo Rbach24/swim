@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, TouchableHighlight, Image } from "react-native";
 import styles from "./styles";
-import { recipes } from "../../data/dataArrays";
+import { swimmers } from "../../data/dataArrays";
 import MenuImage from "../../components/MenuImage/MenuImage";
 import { getCategoryName } from "../../data/MockDataAPI";
 
@@ -19,12 +19,12 @@ export default function HomeScreen(props) {
     });
   }, []);
 
-  const onPressRecipe = (item) => {
-    navigation.navigate("Recipe", { item });
+  const onPressSwimmer = (item) => {
+    navigation.navigate("Swimmer", { item });
   };
 
-  const renderRecipes = ({ item }) => (
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressRecipe(item)}>
+  const renderSwimmers = ({ item }) => (
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressSwimmer(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
         <Text style={styles.date}>{item.name}</Text>
@@ -40,8 +40,8 @@ export default function HomeScreen(props) {
           vertical 
           showsVerticalScrollIndicator={false} 
           numColumns={2} 
-          data={recipes} renderItem={renderRecipes} 
-          keyExtractor={(item) => `${item.recipeId}`} />
+          data={swimmers} renderItem={renderSwimmers} 
+          keyExtractor={(item) => `${item.swimmerId}`} />
     </View>
   );
 }

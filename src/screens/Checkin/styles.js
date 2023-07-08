@@ -6,18 +6,18 @@ const SCREEN_WIDTH = width < height ? width : height;
 
 const numColumns = 3;
 // item size
-const RECIPE_ITEM_HEIGHT = 100;
-const RECIPE_ITEM_OFFSET = 10;
-const RECIPE_ITEM_MARGIN = RECIPE_ITEM_OFFSET * 2;
+const SWIMMER_ITEM_HEIGHT = 100;
+const SWIMMER_ITEM_OFFSET = 10;
+const SWIMMER_ITEM_MARGIN = SWIMMER_ITEM_OFFSET * 2;
 
 const stylessss = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    margin: RECIPE_ITEM_OFFSET,
+    margin: SWIMMER_ITEM_OFFSET,
     marginTop: 30,
-    width: (SCREEN_WIDTH - RECIPE_ITEM_MARGIN) / numColumns - RECIPE_ITEM_OFFSET,
-    height: RECIPE_ITEM_HEIGHT + 60
+    width: (SCREEN_WIDTH - SWIMMER_ITEM_MARGIN) / numColumns - SWIMMER_ITEM_OFFSET,
+    height: SWIMMER_ITEM_HEIGHT + 60
   },
   title: {
     margin: 10,
@@ -27,8 +27,8 @@ const stylessss = StyleSheet.create({
     textAlign: 'center'
   },
   photo: {
-    width: (SCREEN_WIDTH - RECIPE_ITEM_MARGIN) / numColumns - RECIPE_ITEM_OFFSET,
-    height: RECIPE_ITEM_HEIGHT,
+    width: (SCREEN_WIDTH - SWIMMER_ITEM_MARGIN) / numColumns - SWIMMER_ITEM_OFFSET,
+    height: SWIMMER_ITEM_HEIGHT,
     borderRadius: 60
   }
 });

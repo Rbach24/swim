@@ -10,20 +10,20 @@ import {
 import styles from "./styles";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import {
-  getIngredientName,
+  getStyleName,
   getCategoryName,
   getCategoryById,
   getSessionsbySwimmerId as getSessionsbySwimmerId
 } from "../../data/MockDataAPI";
 import BackButton from "../../components/BackButton/BackButton";
-import ViewIngredientsButton from "../../components/ViewIngredientsButton/ViewIngredientsButton";
+import ViewStylesButton from "../../components/ViewSwimStylesButton/ViewSwimStylesButton";
 import CheckinButton from "../../components/CheckinButton/CheckinButton";
 import AttendanceForPracticeButton from "../../components/AttendanceForPracticeButton/AttendanceForPracticeButton";
 import { FlatList } from "react-native-gesture-handler";
 
 const { width: viewportWidth } = Dimensions.get("window");
 
-export default function RecipeScreen(props) {
+export default function SwimmerScreen(props) {
   const { navigation, route } = props;
 
   const item = route.params?.item;
@@ -59,20 +59,20 @@ export default function RecipeScreen(props) {
   );
 
   const onPressSessions = (item) => {
-    var name = getIngredientName(item);
-    let ingredient = item;
-    navigation.navigate("Ingredient", { ingredient, name });
+    var name = getStyleName(item);
+    let swim_style = item;
+    navigation.navigate("SwimStyle", { swim_style: swim_style, name });
   };
 
   const renderMeetSession = ({ item }) => (
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)">
-      <View style={styles.categoriesItemContainer}>
+      <View style={styles.session}>
         {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
         <Text style={styles.categoriesName}>{item.date}</Text>
         <Text style={styles.categoriesName}>{item.type}</Text>
         <Text style={styles.categoriesName}>{item.swim_style}</Text>
         <Text style={styles.categoriesName}>{item.time_recorded}</Text>
-        {/* <Text style={styles.categoriesInfo}>{getNumberOfRecipes(item.id)} recipes</Text> */}
+        {/* <Text style={styles.categoriesInfo}>{getNumberOfSwimmers(item.id)} recipes</Text> */}
       </View>
     </TouchableHighlight>);
 
@@ -119,12 +119,12 @@ export default function RecipeScreen(props) {
           />
         </View>
       </View>
-      <View style={styles.infoRecipeContainer}>
-        <Text style={styles.infoRecipeName}>{item.title}</Text>
+      <View style={styles.infoSwimmerContainer}>
+        <Text style={styles.infoSwimmerName}>{item.title}</Text>
         <View style={styles.infoContainer}>
           <TouchableHighlight
             onPress={() =>
-              navigation.navigate("RecipesList", { category, title })
+              navigation.navigate("SwimmersList", { category, title })
             }
           >
             <Text style={styles.category}>
@@ -138,16 +138,16 @@ export default function RecipeScreen(props) {
             style={styles.infoPhoto}
             source={require("../../../assets/icons/time.png")}
           />
-          <Text style={styles.infoRecipe}>Qualified for {item.time}  </Text>
+          <Text style={styles.infoSwimmer}>Qualified for {item.time}  </Text>
         </View>
 
         <View style={styles.infoContainer}>
-          <ViewIngredientsButton
+          <ViewStylesButton
             onPress={() => {
               // item here is the recipe/swimmer item.
               let sessions = item.sessions;
               let title = "Personal Records of " + item.title ;
-              navigation.navigate("IngredientsDetails", { sessions: sessions, title });
+              navigation.navigate("StylesDetails", { sessions: sessions, title });
             }}
           />
         </View>
@@ -157,7 +157,7 @@ export default function RecipeScreen(props) {
               // item here is the recipe/swimmer item.
               let sessions = item.sessions;
               let title = "Personal Records of " + item.title ;
-              navigation.navigate("IngredientsDetails", { sessions: sessions, title });
+              navigation.navigate("StylesDetails", { sessions: sessions, title });
             }}
           />
         </View>
@@ -171,34 +171,35 @@ export default function RecipeScreen(props) {
         </View>
         
 
-        <View style={styles.infoContainer}>
+        {/* <View style={styles.infoContainer}>
           <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
-        </View>
+        </View> */}
       </View>
 
       <View>
         {/* <Text style={styles.infoDescriptionRecipe}>No. of sessions: {JSON.stringify(meetSessions)}</Text> */}
         <FlatList 
           vertical 
+          key = {'#'}
+          numColumns={2}
           showsVerticalScrollIndicator={false} 
           data={meetSessions} renderItem={renderMeetSession} 
           keyExtractor={(item) => `${item.id}`} />
       </View>
 
-      <View><Text> ------------------------- </Text></View>
 
-      <View>
-        {/* <Text style={styles.infoDescriptionRecipe}>No. of sessions: {JSON.stringify(meetSessions)}</Text> */}
+      
+
+      {/* <View>
         <FlatList 
           vertical 
+          key = {'_'}
+          numColumns={2}
           showsVerticalScrollIndicator={false} 
           data={practiceSessions} renderItem={renderPracticeSession} 
           keyExtractor={(item) => `${item.id}`} />
       </View>
-
-      {/* <View>
-        <FlatList data="allSession" renderItem={renderPracticeSessions} />
-      </View> */}
+         */}
 
     </ScrollView>
   );
