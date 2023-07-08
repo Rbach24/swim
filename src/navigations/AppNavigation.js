@@ -10,6 +10,7 @@ import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import SearchScreen from '../screens/Search/SearchScreen';
 import StylesDetailsScreen from '../screens/StylesDetails/StylesDetailsScreen';
 import CheckinScreen from '../screens/Checkin/CheckinScreen';
+import DevToolsScreen from '../screens/DevTools/DevToolsScreen';
 
  const Stack = createStackNavigator();
 
@@ -33,6 +34,7 @@ function MainNavigator() {
       <Stack.Screen name='Search' component={SearchScreen} />
       <Stack.Screen name='StylesDetails' component={StylesDetailsScreen} />
       <Stack.Screen name='Checkin' component={CheckinScreen} />
+      <Stack.Screen name='DevTools' component={DevToolsScreen} />
 
     </Stack.Navigator>
   )

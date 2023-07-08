@@ -163,6 +163,7 @@ export function getSwimmerById(swimmerId) {
 export function getSessionsbySwimmerId(swimmerId, type = "Meet") {
   let sessionsArray = [];
   swimmers.map(data => {
+    // console.log("Swimmer item = " + JSON.stringify(data) );
     if (data.swimmerId == swimmerId) {
       data.sessions.map(
         sessionItem => {
@@ -187,16 +188,3 @@ export function addSessionToSwimmer(swimmerId, newSession) {
 
 }
 
-export function initializeSwimmersFromDatabase (appState) {
-  console.log ("AppState: " + appState + ", initializeSwimmersFromDatabase started...");
-
-  console.log ("initializeSwimmersFromDatabase ended.");
-}
-
-export function saveSwimmersToDatabase (appState) {
-  console.log ("AppState: " + appState + " saveSwimmersToDatabase started...");
-  let data = swimmers;
-  let dataAsString = JSON.stringify(data);
-  console.log (" saveSwimmersToDatabase ended.");
-
-}

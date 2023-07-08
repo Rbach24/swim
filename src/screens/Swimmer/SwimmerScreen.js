@@ -30,6 +30,7 @@ export default function SwimmerScreen(props) {
   const category = getCategoryById(item.categoryId);
   const title = getCategoryName(category.id);
   const meetSessions = getSessionsbySwimmerId(item.swimmerId);
+  console.log("MeetSessions = " + meetSessions.length);
   const practiceSessions = getSessionsbySwimmerId(item.swimmerId, "Practice");
 
   const [activeSlide, setActiveSlide] = useState(0);
@@ -179,12 +180,11 @@ export default function SwimmerScreen(props) {
       <View>
         {/* <Text style={styles.infoDescriptionRecipe}>No. of sessions: {JSON.stringify(meetSessions)}</Text> */}
         <FlatList 
-          vertical 
+          horizontal="true"
           key = {'#'}
-          numColumns={2}
-          showsVerticalScrollIndicator={false} 
           data={meetSessions} renderItem={renderMeetSession} 
           keyExtractor={(item) => `${item.id}`} />
+
       </View>
 
 

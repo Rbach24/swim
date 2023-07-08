@@ -312,7 +312,7 @@ export const recipes = [
 
 */
 
-export const swimmers = [
+export const static_swimmers = [
   {
     swimmerId: 122,
     categoryId: 3, 
@@ -335,7 +335,9 @@ export const swimmers = [
 
 ];
 
+let swimmers_copy = [].concat(static_swimmers);
 
+export let swimmers = swimmers_copy;
 
 export const swim_styles = [
   {
