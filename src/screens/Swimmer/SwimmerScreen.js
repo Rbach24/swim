@@ -1,26 +1,14 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import {
-  ScrollView,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  TouchableHighlight,
-} from "react-native";
+import { ScrollView, Text, View, Image, Dimensions, TouchableHighlight,} from "react-native";
 import styles from "./styles";
 import Carousel, { Pagination } from "react-native-snap-carousel";
-import {
-  getStyleName,
-  getCategoryName,
-  getCategoryById,
-  getSessionsbySwimmerId as getSessionsbySwimmerId
-} from "../../data/MockDataAPI";
+import { getStyleName, getCategoryName, getCategoryById, getSessionsbySwimmerId as getSessionsbySwimmerId} from "../../data/MockDataAPI";
 import BackButton from "../../components/BackButton/BackButton";
 import ViewStylesButton from "../../components/ViewSwimStylesButton/ViewSwimStylesButton";
 import CheckinButton from "../../components/CheckinButton/CheckinButton";
 import AttendanceForPracticeButton from "../../components/AttendanceForPracticeButton/AttendanceForPracticeButton";
 import { FlatList } from "react-native-gesture-handler";
-
+import { convertSecondstoTime } from "../../data/MockDataAPI";
 const { width: viewportWidth } = Dimensions.get("window");
 
 export default function SwimmerScreen(props) {
@@ -30,8 +18,7 @@ export default function SwimmerScreen(props) {
   const category = getCategoryById(item.categoryId);
   const title = getCategoryName(category.id);
   const meetSessions = getSessionsbySwimmerId(item.swimmerId);
-  console.log("MeetSessions = " + meetSessions.length);
-  const practiceSessions = getSessionsbySwimmerId(item.swimmerId, "Practice");
+  //const practiceSessions = getSessionsbySwimmerId(item.swimmerId, "Practice");
 
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -64,13 +51,13 @@ export default function SwimmerScreen(props) {
     let swim_style = item;
     navigation.navigate("SwimStyle", { swim_style: swim_style, name });
   };
-
+  const readable_time_recorded = convertSecondstoTime(item.time_recorded);
+  console.log(JSON.stringify(readable_time_recorded));
   const renderMeetSession = ({ item }) => (
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)">
       <View style={styles.session}>
         {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
         <Text style={styles.categoriesName}>{item.date}</Text>
-        <Text style={styles.categoriesName}>{item.type}</Text>
         <Text style={styles.categoriesName}>{item.swim_style}</Text>
         <Text style={styles.categoriesName}>{item.time_recorded}</Text>
         {/* <Text style={styles.categoriesInfo}>{getNumberOfSwimmers(item.id)} recipes</Text> */}
@@ -82,7 +69,6 @@ export default function SwimmerScreen(props) {
       <View style={styles.categoriesItemContainer}>
         {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
         <Text style={styles.categoriesName}>{item.date}</Text>
-        <Text style={styles.categoriesName}>{item.type}</Text>
       </View>
     </TouchableHighlight>);
 
@@ -177,9 +163,10 @@ export default function SwimmerScreen(props) {
         </View> */}
       </View>
 
-      <View>
+      <View >
         {/* <Text style={styles.infoDescriptionRecipe}>No. of sessions: {JSON.stringify(meetSessions)}</Text> */}
         <FlatList 
+          length = '30'
           horizontal="true"
           key = {'#'}
           data={meetSessions} renderItem={renderMeetSession} 

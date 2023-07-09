@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: SWIMMER_ITEM_MARGIN,
     marginTop: 20,
-    width: (SCREEN_WIDTH - (swimmerNumColums + 1) * SWIMMER_ITEM_MARGIN) / swimmerNumColums,
-    height: SWIMMER_ITEM_HEIGHT + 75,
-    borderColor: '#cccccc',
+    width: (SCREEN_WIDTH - (swimmerNumColums + 1) * SWIMMER_ITEM_MARGIN) / swimmerNumColums + 200,
+    height : 100,
+    borderColor: 'black',
     borderWidth: 0.5,
     borderRadius: 15
   },

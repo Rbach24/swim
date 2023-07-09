@@ -8,9 +8,10 @@ import SwimmerScreen from '../screens/Swimmer/SwimmerScreen';
 import SwimmerListScreen from '../screens/SwimmersList/SwimmersListScreen';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import SearchScreen from '../screens/Search/SearchScreen';
-import StylesDetailsScreen from '../screens/StylesDetails/StylesDetailsScreen';
+import StylesDetailsScreen from '../screens/SwimStylesDetails/SwimStylesDetailsScreen';
 import CheckinScreen from '../screens/Checkin/CheckinScreen';
 import DevToolsScreen from '../screens/DevTools/DevToolsScreen';
+import NewSwimmerScreen from '../screens/NewSwimmer/NewSwimmerScreen';
 
  const Stack = createStackNavigator();
 
@@ -34,7 +35,9 @@ function MainNavigator() {
       <Stack.Screen name='Search' component={SearchScreen} />
       <Stack.Screen name='StylesDetails' component={StylesDetailsScreen} />
       <Stack.Screen name='Checkin' component={CheckinScreen} />
+      <Stack.Screen name='NewSwimmer' component={NewSwimmerScreen} />
       <Stack.Screen name='DevTools' component={DevToolsScreen} />
+
 
     </Stack.Navigator>
   )

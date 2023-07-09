@@ -4,7 +4,7 @@ import styles from "./styles";
 import { swimmers } from "../../data/dataArrays";
 import MenuImage from "../../components/MenuImage/MenuImage";
 import { getCategoryName } from "../../data/MockDataAPI";
-
+import NewSwimmerButton from "../../components/NewSwimmerButton/NewSwimmerButton";
 export default function HomeScreen(props) {
   const { navigation } = props;
 
@@ -36,6 +36,13 @@ export default function HomeScreen(props) {
 
   return (
     <View>
+      <View >
+          <NewSwimmerButton
+            onPress={() => {
+              navigation.navigate("NewSwimmer");
+            }}
+          />
+        </View>
       <FlatList 
           vertical 
           showsVerticalScrollIndicator={false} 
