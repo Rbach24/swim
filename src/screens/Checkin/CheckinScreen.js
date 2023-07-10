@@ -144,7 +144,7 @@ export default function CheckinScreen(props) {
     justifyContent: 'center',
     alignItems: 'center',}}>
       <SaveButton
-        text = "Save me!"
+        text = "CheckIn"
         onPress = {() => onSaveButton() }
       // onPress={() => {navigation.goBack();}}
       /> 

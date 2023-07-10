@@ -44,8 +44,7 @@ export const static_swimmers = [
       {id: 3, swim_style : "100M Freestyle", date : "2/2/2022", time_recorded : 812, type : 'Meet', qualified : true},
       {id: 4, date : "2/2/2022",  type : 'Practice'}
     ],
-    description:
-    'description, description, description...'
+    description: 'description, description, description...'
   },
 
 ];

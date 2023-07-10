@@ -233,3 +233,8 @@ export function convertSecondstoTime (time_recorded){
 
 }
 
+export function AddAttendance(date, swimmerId){
+
+  
+}
+

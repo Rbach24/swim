@@ -8,7 +8,8 @@ import ViewStylesButton from "../../components/ViewSwimStylesButton/ViewSwimStyl
 import CheckinButton from "../../components/CheckinButton/CheckinButton";
 import AttendanceForPracticeButton from "../../components/AttendanceForPracticeButton/AttendanceForPracticeButton";
 import { FlatList } from "react-native-gesture-handler";
-import { convertSecondstoTime } from "../../data/MockDataAPI";
+import { convertSecondstoTime, AddAttendance } from "../../data/MockDataAPI";
+
 const { width: viewportWidth } = Dimensions.get("window");
 
 export default function SwimmerScreen(props) {
@@ -127,24 +128,16 @@ export default function SwimmerScreen(props) {
           />
           <Text style={styles.infoSwimmer}>Qualified for {item.time}  </Text>
         </View>
-
-        <View style={styles.infoContainer}>
-          <ViewStylesButton
-            onPress={() => {
-              // item here is the recipe/swimmer item.
-              let sessions = item.sessions;
-              let title = "Personal Records of " + item.title ;
-              navigation.navigate("StylesDetails", { sessions: sessions, title });
-            }}
-          />
-        </View>
         <View style={styles.infoContainer}>
           <AttendanceForPracticeButton
             onPress={() => {
               // item here is the recipe/swimmer item.
-              let sessions = item.sessions;
-              let title = "Personal Records of " + item.title ;
-              navigation.navigate("StylesDetails", { sessions: sessions, title });
+              //let sessions = item.sessions;
+              //let title = "Personal Records of " + item.title ;
+              const date = new Date().getDate();
+              console.log(JSON.stringify(date));
+              //AddAttendance(Date, swimmerId);
+              navigation.navigate("Home");
             }}
           />
         </View>
