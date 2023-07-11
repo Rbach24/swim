@@ -25,7 +25,7 @@ export const SwimmerCard = StyleSheet.create({
     borderRadius: 15
   },
   photo: {
-    width: (SCREEN_WIDTH - (NumColumns + 1) * ITEM_MARGIN) / NumColumns,
+    width: (SCREEN_WIDTH - (NumColumns + 1) * ITEM_MARGIN) / NumColumns - 10,
     height: ITEM_HEIGHT,
     borderRadius: 15,
     borderBottomLeftRadius: 0,

@@ -1,6 +1,6 @@
 export const categories = [
   {
-    id: 3,
+    id: 0,
     name: 'class of 2023',
     photo_url:
     'https://www.telegraph.co.uk/content/dam/Travel/2019/January/france-food.jpg?imwidth=1400'
@@ -17,7 +17,7 @@ export const categories = [
       'https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
   },
   {
-    id: 4,
+    id: 3,
     name: 'class of 2026',
     photo_url:
     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/still-life-of-three-fresh-smoothies-in-front-of-royalty-free-image-561093647-1544042068.jpg?crop=0.715xw:0.534xh;0.0945xw,0.451xh&resize=768:*'
@@ -29,9 +29,9 @@ export const categories = [
   // },
 ];
 
-export const static_swimmers = [
+export const mock_data = [
   {
-    swimmerId: 122,
+    swimmerId: 1,
     categoryId: 3, 
     date: '10/10/2023',
     title: 'Kevin Dong',
@@ -39,19 +39,17 @@ export const static_swimmers = [
     photosArray: [ 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1H5YHhTHUXMu3XqUKcA2XRumuY-b8KL_vw&usqp=CAU'  ],
     time: 'States',
     sessions: [
-      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2022", time_recorded : 49, type : 'Practice', qualified : true},
-      {id: 2, swim_style : "50M Freestyle", date : "2/2/2022", time_recorded : 225, type : 'Meet', qualified : true},
-      {id: 3, swim_style : "100M Freestyle", date : "2/2/2022", time_recorded : 812, type : 'Meet', qualified : true},
+      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2023", time_recorded : 49, type : 'Meet', qualified : true},
+      {id: 2, swim_style : "50M Freestyle", date : "2/2/2023", time_recorded : 225, type : 'Meet', qualified : true},
+      {id: 3, swim_style : "100M Freestyle", date : "3/3/2023", time_recorded : 812, type : 'Meet', qualified : true},
       {id: 4, date : "2/2/2022",  type : 'Practice'}
     ],
-    description: 'description, description, description...'
+    description: 'DO NOT USE..description, description, description...',
+    attendance : []
   },
-
 ];
 
-let swimmers_copy = [].concat(static_swimmers);
-
-export let swimmers = swimmers_copy;
+export const swimmers = [];
 
 export const swim_styles = [
   {

@@ -1,12 +1,20 @@
 import React from 'react';
-import { TouchableHighlight, Image, Text, View } from 'react-native';
+import { TouchableHighlight, Image, Text, View, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 import styless from './styles';
+
+
+const { width, height } = Dimensions.get('window');
+const SCREEN_WIDTH = width < height ? width : height;
+const NumColumns = 2;
+const ITEM_HEIGHT = 225;
+const ITEM_MARGIN = 20;
 
 export default function CheckinButton (props) {
     return (
       <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={props.onPress}>
-        <View style={styless.container}>
+        <View style={styless.container }>
+          <Image style ={{width: (SCREEN_WIDTH - (NumColumns + 1) * ITEM_MARGIN) / NumColumns +10,height: ITEM_HEIGHT, borderRadius: 15,borderBottomLeftRadius: 0,borderBottomRightRadius: 0}} source={{ uri: 'data:image/png;base64,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' }}/> 
           <Text style={styless.text}>Add New Swimmer</Text>
         </View>
       </TouchableHighlight>

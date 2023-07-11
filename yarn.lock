@@ -6127,7 +6127,12 @@ react-native-select-dropdown@^3.3.4:
     prop-types "^15.6.1"
     react-addons-shallow-compare "15.6.2"
 
-react-native@*, "react-native@>= 0.64.3", react-native@0.69.9:
+react-native-todo-note@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/react-native-todo-note/-/react-native-todo-note-1.0.0.tgz"
+  integrity sha512-W3EVoGtkU2Uw8yj9LRDr43arvyYTlaVp1t5pPq1P7LC3CxzsVtfrNLXY2WF34zMkiZF4oX6vy+Pu5H+fOl2V1A==
+
+react-native@*, "react-native@>= 0.64.3", react-native@>=0.59.0, react-native@0.69.9:
   version "0.69.9"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.69.9.tgz"
   integrity sha512-I1xqIn47RWxBToO4E6yqyIPSaK9mZnMiscMfrFpWjQr3Gdkicr9y+twmtrRszxaLdQLjHzh/M3y4qOqc3hZnpg==

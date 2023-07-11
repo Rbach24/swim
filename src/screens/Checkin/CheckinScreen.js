@@ -4,6 +4,7 @@ import { FlatList, TextInput, Text, View, Image, TouchableHighlight, StyleSheet,
 import SaveButton from "../../components/SaveButton/SaveButton";
 import SelectDropdown from 'react-native-select-dropdown'
 import { addSessionToSwimmer, getSwimmerById } from "../../data/MockDataAPI";
+import { saveSwimmersToDatabase } from "../../data/storageProvider";
 
 // import { nativeViewGestureHandlerProps } from "react-native-gesture-handler/lib/typescript/handlers/NativeViewGestureHandler";
 
@@ -55,6 +56,7 @@ export default function CheckinScreen(props) {
     var swimmer = getSwimmerById(swimmerId);
     // Alert.alert( JSON.stringify(route.params) + "  ----- " + JSON.stringify(swimmer));
     
+    saveSwimmersToDatabase("NewSessionAdded");
     navigation.navigate("Swimmer", { item: swimmer });
   }
 

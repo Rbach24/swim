@@ -1,7 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
-import * as Updates from 'expo-updates';
 
-import { AppState, StyleSheet, Text, View } from 'react-native';
+import { AppState, Alert, StyleSheet, Text, View } from 'react-native';
 // import { initializeSwimmersFromDatabase, saveSwimmersToDatabase} from "./src/data/MockDataAPI"
 import AppContainer from './src/navigations/AppNavigation';
 import { initializeSwimmersFromDatabase, saveSwimmersToDatabase } from "./src/data/storageProvider";
@@ -34,7 +33,9 @@ export default function App() {
             // Save current app data to storage since the app is inactive or backgrounded.
 
             const saveData = async () => { 
-              await saveSwimmersToDatabase(appState.current);
+              await saveSwimmersToDatabase(appState.current).then( () => { 
+                // Alert.alert("Saved to disk.")
+              });
             };
 
             saveData().catch(console.error);
@@ -45,7 +46,9 @@ export default function App() {
           {
             // Initialize the data arrays with stored data from database since the app just became active/
             const readData = async () => {
-              await initializeSwimmersFromDatabase(appState.current); 
+              await initializeSwimmersFromDatabase(appState.current).then( () => { 
+                // Alert.alert("Loaded saved data.")
+              }); 
             };
 
             readData().catch(console.error).finally( () => {

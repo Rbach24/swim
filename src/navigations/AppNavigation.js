@@ -27,7 +27,7 @@ function MainNavigator() {
           }
       }}
     >
-      <Stack.Screen name='Home' component={HomeScreen} />
+      <Stack.Screen name='Home' component={HomeScreen}  />
       <Stack.Screen name='Categories' component={CategoriesScreen}/>
       <Stack.Screen name='Swimmer' component={SwimmerScreen}/>
       <Stack.Screen name='SwimmerList' component={SwimmerListScreen} />
@@ -53,7 +53,7 @@ function DrawerStack() {
       drawerPosition='left'
       initialRouteName='Main'
       drawerStyle={{
-        width: 250
+        width: 150
       }}
       screenOptions={{headerShown: false}}
       drawerContent={({navigation})=> <DrawerContainer navigation={navigation}/>}
