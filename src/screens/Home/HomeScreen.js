@@ -5,8 +5,16 @@ import { swimmers } from "../../data/dataArrays";
 import MenuImage from "../../components/MenuImage/MenuImage";
 import { getCategoryName } from "../../data/MockDataAPI";
 import NewSwimmerButton from "../../components/NewSwimmerButton/NewSwimmerButton";
+
+const homeTiles = [
+  { id: 'swimmerstile', asset: '', title: 'Swimmers', screen: 'Categories'},
+  { id: 'rankingtile', asset: '', title: 'Ranking', screen: 'Rankings'},
+  { id: 'devtoolstile', asset: '', title: 'DevTools', screen: 'DevTools'},
+];
+
 export default function HomeScreen(props) {
-  const { navigation } = props;
+
+  const { navigation, route } = props;
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -19,12 +27,13 @@ export default function HomeScreen(props) {
     });
   }, []);
 
-  const onPressSwimmer = (item) => {
-    navigation.navigate("Swimmer", { item });
+  const onPressTile = (item) => {
+    // navigation.navigate("Swimmer", { item });
+    navigation.navigate(item.screen);
   };
 
-  const renderSwimmers = ({ item }) => (
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressSwimmer(item)}>
+  const renderTile = ({ item }) => (
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressTile(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
         <Text style={styles.date}>{item.name}</Text>
@@ -36,19 +45,15 @@ export default function HomeScreen(props) {
 
   return (
     <View>
-      <View >
-          <NewSwimmerButton
-            onPress={() => {
-              navigation.navigate("NewSwimmer");
-            }}
-          />
-        </View>
+      <View>
+        <Text>Please select an action from below</Text>
+      </View>
       <FlatList 
           vertical 
           showsVerticalScrollIndicator={false} 
           numColumns={2} 
-          data={swimmers} renderItem={renderSwimmers} 
-          keyExtractor={(item) => `${item.swimmerId}`} />
+          data={homeTiles} renderItem={renderTile} 
+          keyExtractor={(item) => `${item.id}`} />
     </View>
   );
 }
