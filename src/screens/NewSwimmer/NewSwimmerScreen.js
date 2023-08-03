@@ -1,5 +1,4 @@
 import React, { useLayoutEffect, useState } from "react";
-import DatePicker from 'react-native-date-picker';
 import { FlatList, TextInput, Text, View, Image, TouchableHighlight, StyleSheet, Alert } from "react-native";
 import SaveButton from "../../components/SaveButton/SaveButton";
 import SelectDropdown from 'react-native-select-dropdown'
@@ -16,9 +15,6 @@ export default function NewSwimmerScreen(props) {
   // const sessions = route.params?.sessions;
 
   // const sessionsArray = sessions; // getAllSessions(sessions);
-
-  // var d = new Date();
-  // var newId = '' + d.getHours() + d.getMinutes() + d.getSeconds() + d.getMilliseconds();
   let [swimmerName, onNameChanged] = useState('');
   let [swimmerTime, onTimeChanged] = useState('');
   let title = '', time = '';
@@ -135,7 +131,7 @@ export default function NewSwimmerScreen(props) {
         }}
         // onChangeText={text=>localState.time = text}
         defaultValue={time}
-        placeholder="Enter what the Swimmer has already qualified for"
+        placeholder="Enter what the Swimmer has qualified for"
         keyboardType="numeric"
       />
     </View>

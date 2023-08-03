@@ -1,7 +1,7 @@
-import React from 'react'
-import {createStackNavigator} from '@react-navigation/stack'
-import {NavigationContainer} from '@react-navigation/native'
-import {createDrawerNavigator} from '@react-navigation/drawer' 
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer' ;
 import HomeScreen from '../screens/Home/HomeScreen';
 import CategoriesScreen from '../screens/Categories/CategoriesScreen';
 import SwimmerScreen from '../screens/Swimmer/SwimmerScreen';
@@ -12,8 +12,9 @@ import StylesDetailsScreen from '../screens/SwimStylesDetails/SwimStylesDetailsS
 import CheckinScreen from '../screens/Checkin/CheckinScreen';
 import DevToolsScreen from '../screens/DevTools/DevToolsScreen';
 import NewSwimmerScreen from '../screens/NewSwimmer/NewSwimmerScreen';
+import EditSessionScreen from '../screens/EditSessionScreen/EditSessionScreen';
 
- const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 
 function MainNavigator() {
   return(
@@ -37,6 +38,8 @@ function MainNavigator() {
       <Stack.Screen name='Checkin' component={CheckinScreen} />
       <Stack.Screen name='NewSwimmer' component={NewSwimmerScreen} />
       <Stack.Screen name='DevTools' component={DevToolsScreen} />
+      <Stack.Screen name='EditSessionScreen' component={EditSessionScreen} />
+
 
 
     </Stack.Navigator>

@@ -8,22 +8,32 @@ import { saveSwimmersToDatabase } from "../../data/storageProvider";
 // import { nativeViewGestureHandlerProps } from "react-native-gesture-handler/lib/typescript/handlers/NativeViewGestureHandler";
 
 export default function CheckinScreen(props) {
-  const [date, setDate] = useState(new Date())
   const { navigation, route } = props;
 
-  const sessions = route.params?.sessions;
+  const session = route.params?.session;
 
-  const sessionsArray = sessions; // getAllSessions(sessions);
+  //console.log("SESSSION:" + JSON.stringify(session));
+
+  //const sessionsArray = session; // getAllSessions(sessions);
 
   var d = new Date();
   var newId = '' + d.getHours() + d.getMinutes() + d.getSeconds() + d.getMilliseconds();
-  var newSession = {
-    id: newId,
-    swim_style: '',
-    time_recorded: 0,
-    date: '',
-    type: 'Meet'
+  if (session) {
+    var newSession = session;
+    //console.log ("This is the session : " + JSON.stringify(newSession))
+
   }
+  else {
+    var newSession = {
+        id: newId,
+        swim_style: '',
+        time_recorded: 0,
+        date: '',
+        type: 'Meet'
+      }
+      console.log ("This is the session : " + JSON.stringify(newSession))
+  }
+  
 
   const [text, onChangeText] = React.useState('Enter Date');
   const [sessionDate, onDateChanged] = React.useState('');
@@ -48,15 +58,15 @@ export default function CheckinScreen(props) {
 
     newSession.date = sessionDate;
     newSession.time_recorded = sessionTime;
-    var swimmerId = route.params?.swimmerId;
+    var sessionId = route.params?.id;
 
-    addSessionToSwimmer(swimmerId, newSession);
+    addSessionToSwimmer(sessionId, newSession);
     
-    var swimmer = getSwimmerById(swimmerId);
+    var swimmer = getSwimmerById(sessionId);
     // Alert.alert( JSON.stringify(route.params) + "  ----- " + JSON.stringify(swimmer));
     
     saveSwimmersToDatabase("NewSessionAdded");
-    navigation.navigate("Swimmer", { item: swimmer });
+    navigation.navigate("Swimmer", {item : swimmer});
   }
 
 

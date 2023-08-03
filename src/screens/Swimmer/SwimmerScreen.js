@@ -39,6 +39,7 @@ export default function SwimmerScreen(props) {
   const { navigation, route } = props;
 
   const item = route.params?.item;
+  console.log("The category is : " + JSON.stringify(item.categoryId));
   const category = getCategoryById(item.categoryId);
   const title = getCategoryName(category.id);
   const swimmerName = item.name;
@@ -94,7 +95,8 @@ export default function SwimmerScreen(props) {
   console.log(JSON.stringify(readable_time_recorded));
   const renderMeetSession = ({ item }) => (
 
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)">
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => navigation.navigate("EditSessionScreen", {session : item})}
+    >
       <View style={styles.session}>
         {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
         <Text style={styles.categoriesName}>{processDateString(item.date)}</Text>
