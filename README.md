@@ -29,8 +29,8 @@
 
   I learned about how json schema could be stored using react native, and the important differences between using asynchronous and synchronous functions. I learned the importance of using async/await to store data that required parts of code to be complete before moving on; for example, the ```saveSwimmersToDatabase``` function in ```storageProvider.js``` was made asynchronous, because the function has to wait for all changes made to the swimmers' data before saving it to the database. Without making it asynchrnonous, I noticed that the app did not display updated data while the user was trying to make changes to it.
 
-  Coding all the features was not always straightforward and simple, as I would often come across errors that seemed impossible to occur. I learnt a couple of handy debugging methods that saved me a lot of time that I would have otherwise spent searching online for solutions. With the help of the ```JSON.stringify()``` and the ```console.log()``` functions, I was able to fix many of my problems. For example, 
+  Coding all the features was not always straightforward and simple, as I would often come across errors that seemed impossible to occur. I learnt a couple of handy debugging methods that saved me a lot of time that I would have otherwise spent searching online for solutions. With the help of the ```JSON.stringify()``` and the ```console.log()``` functions, I was able to fix many of my problems. For example, I used it when  
 
-# Where I Could Have Done Better
+# What I Could Have Done Better
   
   
