@@ -29,7 +29,7 @@ export default function CategoriesScreen(props) {
   const renderSwimmers = ({ item }) => (
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressSwimmer(item)}>
       <View style={styles.container}>
-        <Image style={styles.photo} source={{ uri: item.photo_url }} />
+        {/* <Image style={styles.photo} source={{ uri: item.photo_url }} /> */}
         <Text style={styles.date}>{item.name}</Text>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.category}>{getCategoryName(item.categoryId)}</Text>
@@ -39,7 +39,7 @@ export default function CategoriesScreen(props) {
 
   return (
     <View style = {{}}>
-      <View style = {{flex : 1, paddingBottom : 30, }}>
+      <View style = {{flex : 1, paddingBottom : 10 }}>
           <NewSwimmerButton
             onPress={() => {
               navigation.navigate("NewSwimmer");

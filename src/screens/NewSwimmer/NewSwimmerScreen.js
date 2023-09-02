@@ -27,7 +27,8 @@ export default function NewSwimmerScreen(props) {
     title = swimmerName = localState.title;
     time = swimmerTime = localState.time;
      // swimmerCategory = state.category;
-  } else {
+  } 
+  else {
     localState = {
       swimmerId: '',
       title: '',

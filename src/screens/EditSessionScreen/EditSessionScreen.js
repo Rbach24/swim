@@ -18,21 +18,7 @@ export default function CheckinScreen(props) {
 
   var d = new Date();
   var newId = '' + d.getHours() + d.getMinutes() + d.getSeconds() + d.getMilliseconds();
-  if (session) {
-    var newSession = session;
-    //console.log ("This is the session : " + JSON.stringify(newSession))
-
-  }
-  else {
-    var newSession = {
-        id: newId,
-        swim_style: '',
-        time_recorded: 0,
-        date: '',
-        type: 'Meet'
-      }
-      console.log ("This is the session : " + JSON.stringify(newSession))
-  }
+  var newSession = session;
   
 
   const [text, onChangeText] = React.useState('Enter Date');
@@ -58,11 +44,13 @@ export default function CheckinScreen(props) {
 
     newSession.date = sessionDate;
     newSession.time_recorded = sessionTime;
-    var sessionId = route.params?.id;
+    var sessionId = route.params?.session.id;
+    var swimmerId = route.params?.swimmerId;
+    console.log("This is the swimmer Id:" + swimmerId + "  " + sessionId)
 
     addSessionToSwimmer(sessionId, newSession);
     
-    var swimmer = getSwimmerById(sessionId);
+    var swimmer = getSwimmerById(swimmerId);
     // Alert.alert( JSON.stringify(route.params) + "  ----- " + JSON.stringify(swimmer));
     
     saveSwimmersToDatabase("NewSessionAdded");
