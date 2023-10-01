@@ -32,7 +32,7 @@ export const categories = [
 export const mock_data = [
   {
     swimmerId: 1,
-    categoryId: 3, 
+    categoryId: 2, 
     date: '10/10/2023',
     title: 'Kevin Dong',
     photo_url: 'https://cdns.iconmonstr.com/wp-content/releases/preview/2017/240/iconmonstr-user-33.png',
