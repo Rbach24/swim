@@ -13,7 +13,7 @@ import CheckinScreen from '../screens/Checkin/CheckinScreen';
 import DevToolsScreen from '../screens/DevTools/DevToolsScreen';
 import NewSwimmerScreen from '../screens/NewSwimmer/NewSwimmerScreen';
 import EditSessionScreen from '../screens/EditSessionScreen/EditSessionScreen';
-
+import AttendanceScreen from '../screens/Attendance/AttendanceScreen';
 const Stack = createStackNavigator();
 
 function MainNavigator() {
@@ -38,7 +38,9 @@ function MainNavigator() {
       <Stack.Screen name='Checkin' component={CheckinScreen} />
       <Stack.Screen name='NewSwimmer' component={NewSwimmerScreen} />
       <Stack.Screen name='DevTools' component={DevToolsScreen} />
-      <Stack.Screen name='EditSessionScreen' component={EditSessionScreen} />
+      <Stack.Screen name='Edit Session' component={EditSessionScreen} />
+      <Stack.Screen name='Attendance' component={AttendanceScreen} />
+
 
 
 
