@@ -243,10 +243,20 @@ export function convertStringtoDate(){
 }
 
 export async function addAttendance(swimmer) {
+  //reduce redudancy 
+  //if datestring already exists in the swimmer's attendance array, 
+  //you don't need to do the following
   const date = new Date();
   const dateString = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear();
-  console.log("addAttendance: " + dateString);
-
+  let alreadyCheckedIn = false;
+  swimmer.sessions.map(data => {
+    if (data.date == dateString) {
+      alreadyCheckedIn = true;
+    }
+  });
+  if (alreadyCheckedIn){
+    return Promise.resolve();
+  }
   var newPracticeSession = { 
     id: swimmer.sessions.length+1,
     date: dateString,
@@ -258,4 +268,20 @@ export async function addAttendance(swimmer) {
   await saveSwimmersToDatabase("addAttendance");
 
 }
+export async function removeAttendance(swimmer){
+  //remove the current date from the swimmers attendance array
+  const date = new Date();
+  const dateString = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear();
+  let indexToRemove = -1;
 
+  for (var i = 0; i < swimmer.sessions.length; i++){
+    let data = swimmer.sessions[i];
+    if (data.date == dateString) {
+      indexToRemove = i;
+    }
+  }
+  if (indexToRemove > -1){
+    swimmer.sessions.splice(indexToRemove, 1);
+  }
+  await saveSwimmersToDatabase("removeAttendance");
+}
