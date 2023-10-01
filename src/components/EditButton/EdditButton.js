@@ -19,4 +19,3 @@ EditButton.propTypes = {
     title: PropTypes.string
   };
   
-
