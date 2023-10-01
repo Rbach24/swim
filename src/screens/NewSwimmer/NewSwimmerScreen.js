@@ -53,6 +53,7 @@ export default function NewSwimmerScreen(props) {
 
     // Alert.alert(JSON.stringify(newSwimmer));
     addSwimmerToSwimmerList(newSwimmer);    
+    console.log("ALL SWIMMERS : " + JSON.stringify(allSwimmers))
     navigation.navigate("Categories", { item: allSwimmers});
   }
 

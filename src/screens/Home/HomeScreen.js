@@ -8,8 +8,8 @@ import NewSwimmerButton from "../../components/NewSwimmerButton/NewSwimmerButton
 
 const homeTiles = [
   { id: 'swimmerstile', asset: '', title: 'Swimmers', screen: 'Categories'},
-  { id: 'rankingtile', asset: '', title: 'Ranking', screen: 'Rankings'},
   { id: 'devtoolstile', asset: '', title: 'DevTools', screen: 'DevTools'},
+  { id: 'attendancetile', asset: '', title: 'Attendance', screen: 'Attendance'}
 ];
 
 export default function HomeScreen(props) {
@@ -51,7 +51,7 @@ export default function HomeScreen(props) {
       <FlatList 
           vertical 
           showsVerticalScrollIndicator={false} 
-          numColumns={2} 
+          numColumns={1} 
           data={homeTiles} renderItem={renderTile} 
           keyExtractor={(item) => `${item.id}`} />
     </View>

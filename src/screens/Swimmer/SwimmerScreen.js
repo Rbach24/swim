@@ -99,7 +99,7 @@ export default function SwimmerScreen(props) {
 
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" 
     onPress={() => 
-      navigation.navigate("EditSessionScreen", {session : item, id : item.id, swimmerId : swimmer.swimmerId})}
+      navigation.navigate("Edit Session", {session : item, id : item.id, swimmerId : swimmer.swimmerId})}
     >
       <View style={styles.session}>
         {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
@@ -186,11 +186,11 @@ export default function SwimmerScreen(props) {
             disabled = {disabled}
 
             onPress={async () => {
-
+                
               // item here is the recipe/swimmer item.
               const item = route.params?.item;
               await addAttendance(item).then( () => {
-                Alert.alert ("Attendance saved");
+                Alert.alert ("Attendance Saved");
                 let updatedSwimmer = getSwimmerById(item.swimmerId);
                 navigation.navigate("Swimmer", { item: updatedSwimmer } );
                 // navigation.navigate("Home");
