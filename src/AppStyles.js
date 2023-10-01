@@ -25,6 +25,19 @@ export const SwimmerCard = StyleSheet.create({
     borderRadius: 15,
     marginBottom : 10
   },
+  container2 :{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: ITEM_MARGIN,
+    marginTop: 0,
+    width: ((SCREEN_WIDTH - (NumColumns + 1) * ITEM_MARGIN) / NumColumns ) - 105,
+    height: ITEM_HEIGHT-155,
+    borderColor: '#cccccc',
+    borderWidth: 0.5,
+    borderRadius: 15,
+    marginBottom : 10
+  },
   // photo: {
   //   width: (SCREEN_WIDTH - (NumColumns + 1) * ITEM_MARGIN) / NumColumns - 10,
   //   height: ITEM_HEIGHT/2,
