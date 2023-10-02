@@ -285,3 +285,4 @@ export async function removeAttendance(swimmer){
   }
   await saveSwimmersToDatabase("removeAttendance");
 }
+

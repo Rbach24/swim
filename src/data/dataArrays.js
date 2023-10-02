@@ -1,3 +1,6 @@
+//import profile1 from assets/icons/profile1;
+import Profile1 from "../components/Profile1/Profile1";
+//import Profile2 from "../components/Profile2/Profile2";
 export const categories = [
   {
     id: 0,
@@ -35,8 +38,76 @@ export const mock_data = [
     categoryId: 2, 
     date: '10/10/2023',
     title: 'Kevin Dong',
-    photo_url: 'https://cdns.iconmonstr.com/wp-content/releases/preview/2017/240/iconmonstr-user-33.png',
-    photosArray: [ 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1H5YHhTHUXMu3XqUKcA2XRumuY-b8KL_vw&usqp=CAU'  ],
+    photo_url: 'https://i.imgur.com/8l2LwLL.png',
+    photosArray: ['https://i.imgur.com/8l2LwLL.png'],
+    time: 'States',
+    sessions: [
+      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2023", time_recorded : 49, type : 'Meet', qualified : true},
+      {id: 2, swim_style : "50M Freestyle", date : "2/2/2023", time_recorded : 225, type : 'Meet', qualified : true},
+      {id: 3, swim_style : "100M Freestyle", date : "3/3/2023", time_recorded : 812, type : 'Meet', qualified : true},
+      {id: 4, date : "2/2/2022",  type : 'Practice'}
+    ],
+    description: 'DO NOT USE..description, description, description...',
+    attendance : []
+  },
+  {
+    swimmerId: 2,
+    categoryId: 3, 
+    date: '10/10/2023',
+    title: 'Rama Chaithanya',
+    photo_url: 'https://i.imgur.com/8l2LwLL.png',
+    photosArray: ['https://i.imgur.com/vPLnW51.jpg'],
+    time: 'States',
+    sessions: [
+      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2023", time_recorded : 49, type : 'Meet', qualified : true},
+      {id: 2, swim_style : "50M Freestyle", date : "2/2/2023", time_recorded : 225, type : 'Meet', qualified : true},
+      {id: 3, swim_style : "100M Freestyle", date : "3/3/2023", time_recorded : 812, type : 'Meet', qualified : true},
+      {id: 4, date : "2/2/2022",  type : 'Practice'}
+    ],
+    description: 'DO NOT USE..description, description, description...',
+    attendance : []
+  },
+  {
+    swimmerId: 3,
+    categoryId: 1, 
+    date: '10/10/2023',
+    title: 'Nithya Bach',
+    photo_url: 'https://i.imgur.com/8l2LwLL.png',
+    photosArray: ['https://i.imgur.com/vPLnW51.jpg'],
+    time: 'States',
+    sessions: [
+      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2023", time_recorded : 49, type : 'Meet', qualified : true},
+      {id: 2, swim_style : "50M Freestyle", date : "2/2/2023", time_recorded : 225, type : 'Meet', qualified : true},
+      {id: 3, swim_style : "100M Freestyle", date : "3/3/2023", time_recorded : 812, type : 'Meet', qualified : true},
+      {id: 4, date : "2/2/2022",  type : 'Practice'}
+    ],
+    description: 'DO NOT USE..description, description, description...',
+    attendance : []
+  },
+  {
+    swimmerId: 4,
+    categoryId: 0, 
+    date: '10/10/2023',
+    title: 'Madhavi Bach',
+    photo_url: 'https://i.imgur.com/8l2LwLL.png',
+    photosArray: ['https://i.imgur.com/8l2LwLL.png'],
+    time: 'States',
+    sessions: [
+      {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2023", time_recorded : 49, type : 'Meet', qualified : true},
+      {id: 2, swim_style : "50M Freestyle", date : "2/2/2023", time_recorded : 225, type : 'Meet', qualified : true},
+      {id: 3, swim_style : "100M Freestyle", date : "3/3/2023", time_recorded : 812, type : 'Meet', qualified : true},
+      {id: 4, date : "2/2/2022",  type : 'Practice'}
+    ],
+    description: 'DO NOT USE..description, description, description...',
+    attendance : []
+  },
+  {
+    swimmerId: 4,
+    categoryId: 1, 
+    date: '10/10/2023',
+    title: 'James Brewski',
+    photo_url: 'https://i.imgur.com/8l2LwLL.png',
+    photosArray: ['https://i.imgur.com/8l2LwLL.png'],
     time: 'States',
     sessions: [
       {id: 1, swim_style : "100 Meter Butterfly", date : "1/1/2023", time_recorded : 49, type : 'Meet', qualified : true},
