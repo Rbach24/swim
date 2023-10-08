@@ -82,6 +82,7 @@ export default function SwimmerScreen(props) {
     var outString = new Date(sessionTimestamp).toDateString();
     if (outString == "Invalid Date")
     {
+      //you're just recording that it is an invalid date. do something about it
       outString = "Invalid Date: " + dateString;
     }
     return outString;
@@ -97,7 +98,7 @@ export default function SwimmerScreen(props) {
   const renderMeetSession = ({ item }) => (
     
 
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" 
+    <TouchableHighlight underlayColor="rgba(46, 139, 192,0.9)" 
     onPress={() => 
       navigation.navigate("Edit Session", {session : item, id : item.id, swimmerId : swimmer.swimmerId})}
     >
@@ -111,7 +112,7 @@ export default function SwimmerScreen(props) {
     </TouchableHighlight>);
 
   const renderPracticeSession = ({ item }) => (
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)">
+    <TouchableHighlight underlayColor="rgba(46, 139, 192,0.9)">
       <View style={styles.session}>
         <View style={styles.categoriesItemContainer}>
           {/* <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} /> */}
@@ -186,7 +187,7 @@ export default function SwimmerScreen(props) {
             disabled = {disabled}
 
             onPress={async () => {
-                
+
               // item here is the recipe/swimmer item.
               const item = route.params?.item;
               await addAttendance(item).then( () => {
