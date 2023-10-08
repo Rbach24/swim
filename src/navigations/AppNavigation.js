@@ -14,6 +14,9 @@ import DevToolsScreen from '../screens/DevTools/DevToolsScreen';
 import NewSwimmerScreen from '../screens/NewSwimmer/NewSwimmerScreen';
 import EditSessionScreen from '../screens/EditSessionScreen/EditSessionScreen';
 import AttendanceScreen from '../screens/Attendance/AttendanceScreen';
+import Schedule from '../screens/Schedule/schedule';
+import Statistics from '../screens/Statistics/statistics';
+import SettingScreen from '../screens/SettingScreen/settingScreen';
 const Stack = createStackNavigator();
 
 function MainNavigator() {
@@ -29,10 +32,9 @@ function MainNavigator() {
       }}
     >
       <Stack.Screen name='Home' component={HomeScreen}  />
-      <Stack.Screen name='Categories' component={CategoriesScreen}/>
+      <Stack.Screen name='Swimmers' component={CategoriesScreen}/>
       <Stack.Screen name='Swimmer' component={SwimmerScreen}/>
       <Stack.Screen name='SwimmerList' component={SwimmerListScreen} />
-      {/* <Stack.Screen name='Ingredient' component={IngredientScreen} /> */}
       <Stack.Screen name='Search' component={SearchScreen} />
       <Stack.Screen name='StylesDetails' component={StylesDetailsScreen} />
       <Stack.Screen name='Checkin' component={CheckinScreen} />
@@ -40,6 +42,12 @@ function MainNavigator() {
       <Stack.Screen name='DevTools' component={DevToolsScreen} />
       <Stack.Screen name='Edit Session' component={EditSessionScreen} />
       <Stack.Screen name='Attendance' component={AttendanceScreen} />
+      <Stack.Screen name='SettingScreen' component={SettingScreen} />
+      <Stack.Screen name='Statistics' component={Statistics} />
+      <Stack.Screen name='Schedule' component={Schedule} />
+
+
+
 
 
 
