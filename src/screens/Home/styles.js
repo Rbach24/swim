@@ -8,4 +8,5 @@ const styles = StyleSheet.create({
   category: SwimmerCard.category
 });
 
+
 export default styles;

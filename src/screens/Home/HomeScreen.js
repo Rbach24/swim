@@ -7,8 +7,8 @@ import { getCategoryName } from "../../data/MockDataAPI";
 import NewSwimmerButton from "../../components/NewSwimmerButton/NewSwimmerButton";
 
 const homeTiles = [
-  { id: 'swimmerstile', asset: '', title: 'Swimmers', screen: 'Categories'},
-  { id: 'devtoolstile', asset: '', title: 'DevTools', screen: 'DevTools'},
+  { id: 'swimmerstile', asset: '', title: 'Swimmers', screen: 'Swimmers'},
+  //{ id: 'devtoolstile', asset: '', title: 'DevTools', screen: 'DevTools'},
   { id: 'attendancetile', asset: '', title: 'Attendance', screen: 'Attendance'}
 ];
 
@@ -33,7 +33,7 @@ export default function HomeScreen(props) {
   };
 
   const renderTile = ({ item }) => (
-    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressTile(item)}>
+    <TouchableHighlight underlayColor="rgba(86, 141, 245,0.9)" onPress={() => onPressTile(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
         <Text style={styles.date}>{item.name}</Text>
@@ -44,10 +44,12 @@ export default function HomeScreen(props) {
   );
 
   return (
-    <View>
+    <View style={{paddingTop: 200}}>
       <View>
-        <Text>Please select an action from below</Text>
       </View>
+      <Image>
+        
+      </Image>
       <FlatList 
           vertical 
           showsVerticalScrollIndicator={false} 
