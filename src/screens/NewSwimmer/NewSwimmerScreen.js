@@ -54,7 +54,7 @@ export default function NewSwimmerScreen(props) {
     // Alert.alert(JSON.stringify(newSwimmer));
     addSwimmerToSwimmerList(newSwimmer);    
     console.log("ALL SWIMMERS : " + JSON.stringify(allSwimmers))
-    navigation.navigate("Categories", { item: allSwimmers});
+    navigation.navigate("Swimmers", { item: allSwimmers});
   }
 
 
@@ -133,7 +133,7 @@ export default function NewSwimmerScreen(props) {
         }}
         // onChangeText={text=>localState.time = text}
         defaultValue={time}
-        placeholder="Enter what the Swimmer has qualified for"
+        placeholder="Enter qualification"
         keyboardType="numeric"
       />
     </View>
@@ -155,7 +155,6 @@ export default function NewSwimmerScreen(props) {
       /> 
     </View>
   </View>
-
   );
 };
 
