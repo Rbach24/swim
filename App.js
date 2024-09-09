@@ -47,7 +47,6 @@ export default function App() {
             // Initialize the data arrays with stored data from database since the app just became active/
             const readData = async () => {
               await initializeSwimmersFromDatabase(appState.current).then( () => { 
-                // Alert.alert("Loaded saved data.")
               }); 
             };
 
@@ -66,7 +65,9 @@ export default function App() {
 
 
   return (
+    
     <AppContainer />
+    
   );
 
 
